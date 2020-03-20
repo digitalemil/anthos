@@ -1,0 +1,10 @@
+istio-1.4.6-asm.0-linux.tar.gz
+anthos-config-managment
+release-bundle.tar.gz
+samples
+localkey
+istio-1.4.6-asm.0
+install-bundle-gcp-identity
+install-bundle-namespaced
+install-bundle-workload-identity
+key.json
