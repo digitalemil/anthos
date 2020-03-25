@@ -16,8 +16,8 @@ gcloud config set compute/zone ${CLUSTER_ZONE}
 
 # --addons=HttpLoadBalancing,CloudRun \
 gcloud beta container clusters create ${CLUSTER_NAME} \
-    --machine-type=n1-standard-4 \
-    --num-nodes=4 \
+    --machine-type=e2-standard-4 \
+    --num-nodes=3 \
     --identity-namespace=${IDNS} \
     --enable-stackdriver-kubernetes \
     --enable-cloud-run-alpha \

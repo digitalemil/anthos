@@ -28,6 +28,8 @@ tar zxvf release-bundle.tar.gz
 
 kubectl apply -f install-bundle-gcp-identity/
 
+kubectl create ns esiemes-default
+
 kubectl wait -n cnrm-system \
 --for=condition=Initialized pod \
 cnrm-controller-manager-0

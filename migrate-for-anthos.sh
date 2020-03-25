@@ -1,5 +1,6 @@
 #!/bin/bash
-echo REMEMBER TO Install MIGRATE FOR ANTHOS
+git clone https://github.com/GoogleCloudPlatform/click-to-deploy.git
+
 
 python3 /google/migrate/anthos/gce-to-gke/clone_vm_disks.py \
 -p esiemes-default \

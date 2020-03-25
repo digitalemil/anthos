@@ -1,5 +1,5 @@
-apiVersion: spanner.cnrm.cloud.google.com/v1beta1
-kind: spannerinstance
+apiVersion: spanner.cnrm.cloud.google.com/v1alpha2
+kind: SpannerInstance
 metadata:
   labels:
     label-one: "value-one"

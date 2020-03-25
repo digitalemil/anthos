@@ -25,3 +25,7 @@ read -p "Installing ConfigMgmt. Press enter to continue"
 sed 's/%CLUSTER_NAME%/'"$CLUSTER_NAME"'/g' config-management.yaml.template >config-management.yaml
 kubectl apply -f config-management-operator.yaml
 kubectl apply -f config-management.yaml
+
+sleep 20
+
+config-connector.sh 

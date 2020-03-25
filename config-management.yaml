@@ -4,12 +4,12 @@ metadata:
   name: config-management
 spec:
   # clusterName is required and must be unique among all managed clusters
-  clusterName: anthos5
+  clusterName: anthos7
   git:
     syncRepo: https://github.com/digitalemil/anthos-config-managment.git
     syncBranch: 1.0.0
     secretType: none
     policyDir: thegym
   configConnector:
-    enabled: false
+    enabled: true
 ---
