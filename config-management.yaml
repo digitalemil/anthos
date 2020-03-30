@@ -4,7 +4,7 @@ metadata:
   name: config-management
 spec:
   # clusterName is required and must be unique among all managed clusters
-  clusterName: anthos7
+  clusterName: anthos2
   git:
     syncRepo: https://github.com/digitalemil/anthos-config-managment.git
     syncBranch: 1.0.0

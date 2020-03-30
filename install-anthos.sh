@@ -28,4 +28,4 @@ kubectl apply -f config-management.yaml
 
 sleep 20
 
-config-connector.sh 
+./config-connector.sh 

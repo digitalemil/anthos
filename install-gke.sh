@@ -10,6 +10,7 @@ gcloud services enable \
     meshtelemetry.googleapis.com \
     meshconfig.googleapis.com \
     iamcredentials.googleapis.com \
+    binaryauthorization.googleapis.com \
     anthos.googleapis.com
 
 gcloud config set compute/zone ${CLUSTER_ZONE}
@@ -21,6 +22,7 @@ gcloud beta container clusters create ${CLUSTER_NAME} \
     --identity-namespace=${IDNS} \
     --enable-stackdriver-kubernetes \
     --enable-cloud-run-alpha \
+    --enable-binauthz \
     --subnetwork=default \
     --labels mesh_id=${MESH_ID}
 
