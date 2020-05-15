@@ -2,9 +2,10 @@ apiVersion: configmanagement.gke.io/v1
 kind: ConfigManagement
 metadata:
   name: config-management
+  namespace: config-management-system
 spec:
   # clusterName is required and must be unique among all managed clusters
-  clusterName: anthos2
+  clusterName: thegym3
   git:
     syncRepo: https://github.com/digitalemil/anthos-config-managment.git
     syncBranch: 1.0.0

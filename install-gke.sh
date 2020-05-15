@@ -17,7 +17,9 @@ gcloud config set compute/zone ${CLUSTER_ZONE}
 
 # --addons=HttpLoadBalancing,CloudRun \
 gcloud beta container clusters create ${CLUSTER_NAME} \
+    --cluster-version=1.15.9-gke.24 \
     --machine-type=e2-standard-4 \
+    --image-type "UBUNTU" \
     --num-nodes=3 \
     --identity-namespace=${IDNS} \
     --enable-stackdriver-kubernetes \
@@ -26,3 +28,4 @@ gcloud beta container clusters create ${CLUSTER_NAME} \
     --subnetwork=default \
     --labels mesh_id=${MESH_ID}
 
+gcloud container binauthz policy import allow.yaml

@@ -1,3 +1,4 @@
+
 source env.sh
 
 gcloud config set project $PROJECT_ID
@@ -9,6 +10,7 @@ export EMAIL=$(gcloud iam service-accounts list | grep cnrm-system | awk '{ prin
 gcloud projects add-iam-policy-binding $PROJECT_ID \
  --member "serviceAccount:$EMAIL" \
  --role "roles/owner"
+gcloud projects add-iam-policy-binding $PROJECT_ID  --member "serviceAccount:$EMAIL"  --role "roles/spanner.admin"
 
 gcloud iam service-accounts keys create \
  --iam-account "$EMAIL" \
@@ -22,13 +24,15 @@ kubectl create secret generic gcp-key \
 
 rm ./key.json
 
-gsutil cp gs://cnrm/latest/release-bundle.tar.gz release-bundle.tar.gz
+#gsutil cp gs://cnrm/latest/release-bundle.tar.gz release-bundle.tar.gz
 
-tar zxvf release-bundle.tar.gz
+#tar zxvf release-bundle.tar.gz
 
-kubectl apply -f install-bundle-gcp-identity/
+#kubectl apply -f install-bundle-gcp-identity/
 
 kubectl create ns esiemes-default
+
+sleep 10
 
 kubectl wait -n cnrm-system \
 --for=condition=Initialized pod \

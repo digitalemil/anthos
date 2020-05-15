@@ -1,0 +1,112 @@
+kind: Migration
+apiVersion: anthos-migrate.cloud.google.com/v1beta1
+metadata:
+  name: "pmml-migration"
+  namespace: "default"
+spec:
+  # Review and set which artifacts to generate.
+  # Specify 'Image' to generate a container image.
+  # Specify 'Data' to export data from the source VM to a target Persistent Volume Claim (PVC). Only the differences between the source and target are copied, so this option can be used for a fast sync before cut-over.
+  # Specify 'ImageAndData' to generate both.
+  # Specify 'PvBasedContainer' to generate a stateful container, with a generic image, where the state is stored in the Persistent Volume (PV)
+  intent: "ImageAndData"
+  source:
+    gce:
+      project: "esiemes-default"
+      zone: "us-central1-c"
+      vmId: "pmml-vm"
+
+      # The node-pool default service-account will be used for Compute Engine operations.
+      # To specify a custom service-account:
+      # store the service-account key json in a k8s secret object,
+      # in the namespace "default",
+      # then uncomment and edit the secret name in the following line:
+      # gceServiceAccountSecretName: "my-secret-with-key-json"
+
+      # You can set labels for created resources, such as Compute Engine volume snapshots and disk volumes:
+      labels:
+        migration-name: "pmml-migration"
+        migration-namespace: "default"
+        migration-cluster: "migration-processing"
+
+  artifacts:
+    # Files and directories to exclude from the migration, in rsync format
+    excludeFilters:
+    - "- *.swp"
+    - "- /etc/fstab"
+    - "- /boot/"
+    - "- /tmp/*"
+    - "- /var/log/*.log*"
+    - "- /var/log/*/*.log*"
+    - "- /var/cache/*"
+
+    image:
+      # Review and set the name for extracted non-runnable base image
+      base: "gcr.io/esiemes-default/pmml-vm-non-runnable-base:v1.0.0"
+
+      # Review and set the name for runnable container image
+      name: "gcr.io/esiemes-default/pmml-vm:v1.0.0"
+
+      # The node-pool default service-account will be used for Container Registry operations.
+      # To specify a custom service-account:
+      # store the service-account key json in a k8s secret object,
+      # in the namespace "default",
+      # then uncomment and edit the secret name in the following line:
+      # containerRegistrySecretName: "my-secret-with-key-json"
+
+    dataVolumes:
+    # Review and set the PVC name for your data volume. The referenced PVC needs to be in the namespace "default"
+    - pvcName: "pvc-pmml-vm"
+
+      # Folders to include in the data volume, e.g. "/var/lib/mysql"
+      # Included folders contain data and state, and therefore are automatically excluded from a generated container image
+      folders:
+      - "<folder>"
+
+    deployment:
+      # Bucket that stores the deployment artifacts, such as YAML specs and Dockerfile
+      bucket: "esiemes-default-migration-artifacts"
+
+      # Review and set the migration folder in the bucket, for the deployment artifacts, such as YAML specs and Dockerfile
+      pathPrefix: "default-pmml-migration/"
+
+      # Review and set the app-name for your StatefulSet or Deployment YAML spec
+      appName: "app-pmml-vm"
+
+      # The node-pool default service-account will be used for Cloud Storage operations.
+      # To specify a custom service-account:
+      # store the service-account key json in a k8s secret object,
+      # in the namespace "default",
+      # then uncomment and edit the secret name in the following line:
+      # repositorySecretName: "my-secret-with-key-json"
+
+
+ 
+---
+ 
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: retain-standard-ssd
+provisioner: kubernetes.io/gce-pd
+reclaimPolicy: Retain
+parameters:
+  type: pd-ssd
+  replication-type: none
+ 
+---
+ 
+# Review and set the persistent volume type (the default is zonal SSD Persistent Disk)
+# Review and set the size for the Persistent Volume (the default is 10G)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "pvc-pmml-vm"
+  namespace: "default"
+spec:
+  storageClassName: retain-standard-ssd
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10G

@@ -2,8 +2,9 @@
 
 export PROJECT_ID=esiemes-default
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} --format="value(projectNumber)")
-export CLUSTER_NAME=anthos2
+export CLUSTER_NAME=thegym3
 export CLUSTER_ZONE=us-central1-c
+export CLUSTER_REGION=us-central1
 export IDNS=${PROJECT_ID}.svc.id.goog
 export MESH_ID="proj-${PROJECT_NUMBER}"
 export GCP_EMAIL_ADDRESS=esiemes@google.com

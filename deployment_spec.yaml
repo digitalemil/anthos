@@ -1,0 +1,141 @@
+# Stateful application specification -
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: null
+  labels:
+    app: app-pmml-vm
+    migrate-for-anthos-type: workload
+  name: app-pmml-vm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-pmml-vm
+      migrate-for-anthos-type: workload
+  serviceName: app-pmml-vm
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: app-pmml-vm
+        migrate-for-anthos-type: workload
+    spec:
+      containers:
+      - image: gcr.io/esiemes-default/pmml-vm:v1.0.0
+        imagePullPolicy: Always
+        name: app-pmml-vm
+        readinessProbe:
+          exec:
+            command:
+            - /code/ready.sh
+        resources: {}
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /sys/fs/cgroup
+          name: cgroups
+        - mountPath: /<folder>
+          name: pvc-pmml-vm
+          subPath: <folder>
+      volumes:
+      - hostPath:
+          path: /sys/fs/cgroup
+          type: Directory
+        name: cgroups
+      - name: pvc-pmml-vm
+        persistentVolumeClaim:
+          claimName: pvc-pmml-vm
+  updateStrategy: {}
+status:
+  replicas: 0
+
+---
+# Headless Service specification -
+# No load-balancing, and a single cluster internal IP, only reachable from within the cluster
+# The Kubernetes endpoints controller will modify the DNS configuration to return records (addresses) that point to the Pods, which are labeled with "app": "app-pmml-vm"
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: app-pmml-vm
+spec:
+  clusterIP: None
+  selector:
+    app: app-pmml-vm
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    kubernetes.io/createdby: gce-pd-dynamic-provisioner
+    pv.kubernetes.io/bound-by-controller: "yes"
+    pv.kubernetes.io/provisioned-by: kubernetes.io/gce-pd
+  creationTimestamp: "2020-05-15T12:35:19Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  labels:
+    failure-domain.beta.kubernetes.io/region: us-central1
+    failure-domain.beta.kubernetes.io/zone: us-central1-c
+    migration: pmml-migration
+    migration-namespace: default
+    migration-uid: 870085b6-96a8-11ea-b545-42010a8001cb
+  name: pvc-873e0747-96a8-11ea-b545-42010a8001cb
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  gcePersistentDisk:
+    fsType: ext4
+    pdName: gke-migration-processi-pvc-873e0747-96a8-11ea-b545-42010a8001cb
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: failure-domain.beta.kubernetes.io/zone
+          operator: In
+          values:
+          - us-central1-c
+        - key: failure-domain.beta.kubernetes.io/region
+          operator: In
+          values:
+          - us-central1
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+status: {}
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"name":"pvc-pmml-vm","namespace":"default"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"10G"}},"storageClassName":"retain-standard-ssd"}}
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/gce-pd
+  creationTimestamp: "2020-05-15T12:35:15Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    migration: pmml-migration
+    migration-namespace: default
+    migration-uid: 870085b6-96a8-11ea-b545-42010a8001cb
+  name: pvc-pmml-vm
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10G
+  storageClassName: ""
+  volumeMode: Filesystem
+  volumeName: pvc-873e0747-96a8-11ea-b545-42010a8001cb
+status: {}
+
+---

@@ -1,6 +1,8 @@
-apiVersion: spanner.cnrm.cloud.google.com/v1alpha2
+apiVersion: spanner.cnrm.cloud.google.com/v1beta1
 kind: SpannerInstance
 metadata:
+  annotations:
+    cnrm.cloud.google.com/project-id: esiemes-default
   labels:
     label-one: "value-one"
   name: spannerinstance-sample
@@ -8,4 +10,3 @@ spec:
   config: regional-us-west1
   displayName: Spanner Instance Sample
   numNodes: 1
-
