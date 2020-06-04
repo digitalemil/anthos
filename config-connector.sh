@@ -8,9 +8,9 @@ gcloud beta container clusters update $CLUSTER_NAME --update-addons ConfigConnec
 kubectl wait pod/configconnector-operator-0 -n configconnector-operator-system --for=condition=Initialized
 
 
-gcloud iam service-accounts create cnrm-system-$PROJECT_ID --project $PROJECT_ID
+gcloud iam service-accounts create cnrm-system-$CLUSTER_NAME --project $PROJECT_ID
 
-export EMAIL=$(gcloud iam service-accounts list | grep cnrm-system-$PROJECT_ID | awk '{ print $1 }')
+export EMAIL=$(gcloud iam service-accounts list | grep cnrm-system-$CLUSTER_NAME | awk '{ print $1 }')
 echo GSA: $EMAIL
 
 sed 's/%EMAIL%/'"$EMAIL"'/g' config-connector.yaml.template >config-connector.yaml

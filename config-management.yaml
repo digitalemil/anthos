@@ -5,7 +5,7 @@ metadata:
   namespace: config-management-system
 spec:
   # clusterName is required and must be unique among all managed clusters
-  clusterName: c10
+  clusterName: thegymapp
   policyController:
     enabled: true
   git:
