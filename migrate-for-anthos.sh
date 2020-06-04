@@ -5,9 +5,8 @@ gcloud config set project $PROJECT_ID
 
 
 #Create Migration Cluster
-#gcloud container clusters create migration-processing --scopes="cloud-platform"    --project=$PROJECT_ID --zone=$CLUSTER_ZONE --machine-type n1-standard-4    --image-type ubuntu --num-nodes 1 --enable-stackdriver-kubernetes    --subnetwork "projects/$PROJECT_ID/regions/$CLUSTER_REGION/subnetworks/default" 
-#gcloud container clusters get-credentials migration-processing  --zone $CLUSTER_ZONE --project $PROJECT_ID
-gcloud container clusters get-credentials migration-processing --zone us-central1-c --project esiemes-default
+gcloud container clusters create migration-processing --scopes="cloud-platform"    --project=$PROJECT_ID --zone=$CLUSTER_ZONE --machine-type n1-standard-4    --image-type ubuntu --num-nodes 1 --enable-stackdriver-kubernetes    --subnetwork "projects/$PROJECT_ID/regions/$CLUSTER_REGION/subnetworks/default" 
+gcloud container clusters get-credentials migration-processing  --zone $CLUSTER_ZONE --project $PROJECT_ID
 
 migctl setup install
 

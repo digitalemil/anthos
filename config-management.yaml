@@ -5,7 +5,9 @@ metadata:
   namespace: config-management-system
 spec:
   # clusterName is required and must be unique among all managed clusters
-  clusterName: thegym3
+  clusterName: c10
+  policyController:
+    enabled: true
   git:
     syncRepo: https://github.com/digitalemil/anthos-config-managment.git
     syncBranch: 1.0.0

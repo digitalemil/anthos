@@ -2,7 +2,7 @@
 
 export PROJECT_ID=esiemes-default
 export PROJECT_NUMBER=$(gcloud projects describe ${PROJECT_ID} --format="value(projectNumber)")
-export CLUSTER_NAME=thegym3
+export CLUSTER_NAME=c10
 export CLUSTER_ZONE=us-central1-c
 export CLUSTER_REGION=us-central1
 export IDNS=${PROJECT_ID}.svc.id.goog
@@ -12,3 +12,4 @@ export SERVICE_ACCOUNT_NAME=anthos-$CLUSTER_NAME
 export LOCAL_KEY_PATH=localkey
 export MEMBERSHIP_NAME=$CLUSTER_NAME
 export GKE_CLUSTER=$CLUSTER_ZONE/$CLUSTER_NAME
+export CLUSTER_LOCATION=$CLUSTER_ZONE

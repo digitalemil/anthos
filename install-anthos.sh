@@ -8,18 +8,10 @@ gcloud services enable anthos.googleapis.com
 
 ./install-gke.sh
 
-#read -p "Press enter to continue"
-
-#./prep_register_cluster.sh
-
-#read -p "Press enter to continue"
-
-#./register_cluster.sh
-
 
 ./prep_asm.sh
 
-read -p "Press enter to continue"
+#read -p "Press enter to continue"
 
 ./prep_register_cluster.sh
 

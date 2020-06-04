@@ -17,7 +17,7 @@ gcloud config set compute/zone ${CLUSTER_ZONE}
 
 # --addons=HttpLoadBalancing,CloudRun \
 gcloud beta container clusters create ${CLUSTER_NAME} \
-    --cluster-version=1.15.9-gke.24 \
+    --cluster-version=1.16.8-gke.15 \
     --machine-type=e2-standard-4 \
     --image-type "UBUNTU" \
     --num-nodes=3 \
