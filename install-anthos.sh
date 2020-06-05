@@ -20,8 +20,8 @@ gcloud services enable anthos.googleapis.com
 ./register_cluster.sh
 
 #read -p "Installing knative. Press enter to continue"
-kubectl apply --selector knative.dev/crd-install=true --filename https://github.com/knative/serving/releases/download/v0.11.0/serving.yaml
-kubectl apply --filename https://github.com/knative/serving/releases/download/v0.11.0/serving.yaml 
+#kubectl apply --selector knative.dev/crd-install=true --filename https://github.com/knative/serving/releases/download/v0.11.0/serving.yaml
+#kubectl apply --filename https://github.com/knative/serving/releases/download/v0.11.0/serving.yaml 
 
 gsutil cp gs://config-management-release/released/latest/config-management-operator.yaml config-management-operator.yaml
 
@@ -35,4 +35,4 @@ kubectl apply -f config-management.yaml
 sleep 20
 
 
-./config-connector.sh 
+#./config-connector.sh 

@@ -59,11 +59,11 @@ kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole=cluster-admin \
   --user="$(gcloud config get-value core/account)"
 
-curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.4.9-asm.1-linux.tar.gz
+curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.5.4-asm.2-linux.tar.gz
 
-tar xzf istio-1.4.9-asm.1-linux.tar.gz
+tar xzf istio-1.5.4-asm.2-linux.tar.gz
 
-cd istio-1.4.9-asm.1
+cd istio-1.5.4-asm.2
 
 export PATH=$PWD/bin:$PATH
 
