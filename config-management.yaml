@@ -5,7 +5,7 @@ metadata:
   namespace: config-management-system
 spec:
   # clusterName is required and must be unique among all managed clusters
-  clusterName: c17
+  clusterName: aw4
   policyController:
     enabled: true
   git:

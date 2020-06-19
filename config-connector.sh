@@ -6,7 +6,7 @@ gcloud config set project $PROJECT_ID
 
 
 gcloud iam service-accounts create cnrm-system-$CLUSTER_NAME --project $PROJECT_ID
-
+sleep 10
 export EMAIL=$(gcloud iam service-accounts list | grep cnrm-system-$CLUSTER_NAME | awk '{ print $1 }')
 echo GSA: $EMAIL
 

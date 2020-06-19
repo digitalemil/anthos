@@ -59,20 +59,18 @@ kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole=cluster-admin \
   --user="$(gcloud config get-value core/account)"
 
-curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.5.4-asm.2-linux.tar.gz
 
-tar xzf istio-1.5.4-asm.2-linux.tar.gz
-
-cd istio-1.5.4-asm.2
+curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.5.5-asm.2-linux.tar.gz
+tar xzf istio-1.5.5-asm.2-linux.tar.gz
+cd istio-1.5.5-asm.2
 
 export PATH=$PWD/bin:$PATH
+gcloud components install kpt
+kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/asm@release-1.5-asm .
+kpt cfg set asm gcloud.container.cluster ${CLUSTER_NAME}
 
 istioctl manifest apply --set profile=asm \
-  --set values.global.trustDomain=${WORKLOAD_POOL} \
-  --set values.global.sds.token.aud=${WORKLOAD_POOL} \
-  --set values.nodeagent.env.GKE_CLUSTER_URL=https://container.googleapis.com/v1/projects/${PROJECT_ID}/locations/${CLUSTER_LOCATION}/clusters/${CLUSTER_NAME} \
-  --set values.global.meshID=${MESH_ID} \
-  --set values.global.proxy.env.GCP_METADATA="${PROJECT_ID}|${PROJECT_NUMBER}|${CLUSTER_NAME}|${CLUSTER_LOCATION}"
+	  -f asm/cluster/istio-operator.yaml
 
 kubectl wait --for=condition=available --timeout=600s deployment --all -n istio-system
 
