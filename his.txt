@@ -1,0 +1,1000 @@
+   39  rm -fr terraform
+   40  git add .
+   41  git commit -m "."
+   42  git push
+   43  find . -name ".git*"
+   44  find . -name ".git*" | xargs -i rm -fr {}
+   45  find . -name ".git*"
+   46  ls -al
+   47  cd ..
+   48  mv TerraformWithGCPExample told
+   49  git clone https://github.com/digitalemil/TerraformWithGCPExample.git
+   50  cd TerraformWithGCPExample/
+   51  ls
+   52  terraform init
+   53  terraform plan
+   54  vi main.tf 
+   55  terraform plan
+   56  vi main.tf 
+   57  terraform plan
+   58  ls -al
+   59  vi main.tf 
+   60  terraform plan
+   61  vi main.tf 
+   62  terraform init
+   63  terraform plan
+   64  vi main.tf 
+   65  ls
+   66  ls -al
+   67  rm -fr .terraform/
+   68  terraform init
+   69  terraform plan
+   70  vi main.tf 
+   71  cd terraform-google-kubernetes-engine/
+   72  ls
+   73  cd ..
+   74  rm -fr terraform-google-kubernetes-engine/
+   75  git clone https://github.com/terraform-google-modules/terraform-google-kubernetes-engine.git
+   76  ls -la terraform-google-kubernetes-engine/
+   77  ls -la terraform-google-kubernetes-engine/.git
+   78  vi Jenkinsfile 
+   79  ls -al 
+   80  rm -fr terraform-google-kubernetes-engine/
+   81  git add .
+   82  git commit -m "git clone google k8s engine"
+   83  git push
+   84  git clone https://github.com/terraform-google-modules/terraform-google-kubernetes-engine.git
+   85  terraform plan
+   86  terraform init
+   87  terraform plan
+   88  vi Jenkinsfile 
+   89  vi backend.tf
+   90  git add .
+   91  ls
+   92  rm -fr .terraform/
+   93  rm -fr terraform-google-kubernetes-engine
+   94  ls -al
+   95  git add .
+   96  git commit -m "with backend"
+   97  git push
+   98  ls -al
+   99  vi Jenkinsfile 
+  100  git add .
+  101  git commit -m "with backend"
+  102  git push
+  103  vi Jenkinsfile 
+  104  git add .
+  105  git commit -m "with backend"
+  106  git push
+  107  vi Jenkinsfile 
+  108  cat Jenkinsfile 
+  109  export GOOGLE_APPLICATION_CREDENTIALS=${TF_CREDS}
+  110  export GOOGLE_PROJECT=${TF_ADMIN}export GOOGLE_APPLICATION_CREDENTIALS=${TF_CREDS}
+  111  ls
+  112  vi Jenkinsfile 
+  113  git add .
+  114  git commit -m "with backend"
+  115  git push
+  116  sh ../fw.sh 
+  117  vi Jenkinsfile 
+  118  vi create-config.sh 
+  119  git add .
+  120  git commit -m "create-config fix"
+  121  git push
+  122  chmod +x fw.sh 
+  123  ./fw.sh 
+  124  cd TerraformWithGCPExample/
+  125  ls
+  126  vi Jenkinsfile 
+  127  git add . ;git commit -m "create-config fix"; git push
+  128  vi Jenkinsfile 
+  129  git add . ;git commit -m "create-config fix"; git push
+  130  vi config.template 
+  131  ls
+  132  cat Jenkinsfile 
+  133  vi config.template 
+  134  vi config
+  135  cat config.template 
+  136  vi config
+  137  ./kubectl --kubeconfig config get nodes
+  138  kubectl --kubeconfig config get nodes
+  139  vi Jenkinsfile 
+  140  vi create-config.sh 
+  141  git add . ;git commit -m "create-config fix"; git push
+  142  vi config.template 
+  143  git add . ;git commit -m "create-config fix"; git push
+  144  ../fw.sh 
+  145  less c
+  146  less config
+  147  less config.template 
+  148  vi create-config.sh 
+  149  vi config.template 
+  150  git add . ;git commit -m "create-config fix"; git push
+  151  vi create-config.sh 
+  152  git add . ;git commit -m "create-config fix"; git push
+  153  ls ..
+  154  cd ..
+  155  rm terraform
+  156  rm terraform.zip 
+  157  ls told
+  158  cd ..
+  159  cd
+  160  rm -fr told/
+  161  ./fw.sh 
+  162  cd T
+  163  cd TerraformWithGCPExample/
+  164  vi Jenkinsfile 
+  165  git add . ;git commit -m "create-config fix"; git push
+  166  vi Jenkinsfile 
+  167  git add . ;git commit -m "create-config fix"; git push
+  168  vi Jenkinsfile 
+  169  cat Jenkinsfile 
+  170  vi Jenkinsfile 
+  171  git add . ;git commit -m "create-config fix"; git push
+  172  vi Jenkinsfile 
+  173  git add . ;git commit -m "create-config fix"; git push
+  174  vi Jenkinsfile 
+  175  git add . ;git commit -m "create-config fix"; git push
+  176  vi Jenkinsfile 
+  177  git add . ;git commit -m "create-config fix"; git push
+  178  vi Jenkinsfile 
+  179  vi create-config.sh 
+  180  ls
+  181  git add . ;git commit -m "create-config fix"; git push
+  182  ../fw.sh 
+  183  cat thesimplegym.yaml 
+  184  ls /home/esiemes/TerraformWithGCPExample/thesimplegym.yaml 
+  185  gcloud container clusters get-credentials testcluster --region europe-west3 --project esiemes-default
+  186  cd ..
+  187  mkdir tmp
+  188  cd tmp/
+  189  curl -o helm.tar https://storage.googleapis.com/esiemes-scripts/helm.tar
+  190  tar xf helm.tar 
+  191  ls
+  192  ./helm install --dry-run --debug ./thegym
+  193  export PATH=.:$PATH
+  194  ./helm install --dry-run --debug ./thegym
+  195  helm init --history-max 200
+  196  ./helm install --dry-run --debug ./thegym
+  197  kubectl delete deployment tiller-deploy -n kube-system
+  198  cd ..
+  199  cd TerraformWithGCPExample/
+  200  vi tiller-sa.yaml
+  201  kubectl apply -f tiller-sa.yaml 
+  202  kubectl get deployment tiller-deploy -n kube-system
+  203  helm init --service-account=tiller
+  204  ./helm install --dry-run --debug ./thegym
+  205  cd ..
+  206  cd tmp/
+  207  ./helm install --dry-run --debug ./thegym
+  208  ./helm init --service-account=tiller
+  209  ./helm install --dry-run --debug ./thegym
+  210  less thegym/templates/thesimplegym.yaml 
+  211  ./helm install --set build=75 --dery-run --debug ./thegym/
+  212  ./helm install --set build=75 --dry-run --debug ./thegym/
+  213  vi ../TerraformWithGCPExample/app/routes/index.js 
+  214  history
+  215  cd ..
+  216  cd TerraformWithGCPExample/
+  217  ls
+  218  cp -r ../tmp/helm .
+  219  cd he
+  220  cd hel
+  221  ls
+  222  rm helm 
+  223  mkdir help
+  224  rmdir help/
+  225  mkdir helm
+  226  cp -r ../tmp/* helm/
+  227  cd helm/
+  228  ls
+  229  rm helm.tar 
+  230  rm helm 
+  231  rm tiller 
+  232  rm LICENSE README.md 
+  233  ls
+  234  mv ../tiller-sa.yaml .
+  235  ls
+  236  cd ..
+  237  vi Jenkinsfile 
+  238  cd
+  239  cd tmp/
+  240  mkdir t2
+  241  cd t2
+  242  curl -o terraform https://storage.googleapis.com/esiemes-scripts/terraform
+  243  curl -o helm.tar https://storage.googleapis.com/esiemes-scripts/helm.tar
+  244  tar xf helm.tar
+  245  ls
+  246  history
+  247  cd ..
+  248  cd TerraformWithGCPExample/
+  249  ls
+  250  git add .; git commit -m "Helm 1" ; git push
+  251  cd app/
+  252  ls
+  253  vi Dockerfile 
+  254  less ~/thesimplegym/make.sh 
+  255  cd ..
+  256  vi Jenkinsfile 
+  257  ls
+  258  cd helm/
+  259  ls
+  260  cat ../Jenkinsfile 
+  261  vi thegym/templates/thesimplegym.yaml 
+  262  cd ..
+  263  tar cvf helm.tar helm
+  264  ls /home/esiemes/TerraformWithGCPExample/helm.tar 
+  265  ls
+  266  rm -fr helm.tar 
+  267  rm helm/
+  268  rm -fr helm/
+  269  ls
+  270  git add . ; git commit -m "docker build" ; git push
+  271  ../fw.sh 
+  272  vi Jenkinsfile 
+  273  git add . ; git commit -m "docker build" ; git push
+  274  vi Jenkinsfile 
+  275  cat Jenkinsfile 
+  276  vi Jenkinsfile 
+  277  git add . ; git commit -m "docker build" ; git push
+  278  vi Jenkinsfile 
+  279  git add . ; git commit -m "docker build" ; git push
+  280  vi Jenkinsfile 
+  281  cd
+  282  ls
+  283  cd tmp/
+  284  ls
+  285  tar tvf helm.tar 
+  286  vi thegym/templates/thesimplegym.yaml 
+  287  cat ../TerraformWithGCPExample/helm/
+  288  vi thegym/templates/thesimplegym.yaml 
+  289  ls
+  290  rm helm.tar 
+  291  tar cf helm.tar *
+  292  ls -al
+  293  tar tvf helm.tar 
+  294  rm -fr t2/
+  295  tar cf helm.tar *
+  296  rm helm.tar 
+  297  tar cf helm.tar *
+  298  rm helm.tar 
+  299  tar cf helm.tar *
+  300  tar tvf helm.tar 
+  301  ls /home/esiemes/tmp/helm.tar 
+  302  cd ../TerraformWithGCPExample/
+  303  ls
+  304  mkdir helmchart
+  305  cp -r ../tmp/thegym/* helmchart/
+  306  ls -al helmchart/
+  307  ls
+  308  cd ..
+  309  cd tmp/
+  310  ls
+  311  rm helm
+  312  tar xf helm.tar .
+  313  tar xf helm.tar 
+  314  ls
+  315  rm -fr thegym/
+  316  rm helm.tar 
+  317  ls
+  318  tar cf helm.tar .
+  319  ls
+  320  rm helm.tar 
+  321  tar cf helm.tar *
+  322  ls -la
+  323  tar tvf helm.tar 
+  324  cd ..
+  325  cd TerraformWithGCPExample/
+  326  vi Jenkinsfile 
+  327  ls helmchart/
+  328  vi Jenkinsfile 
+  329  git add . ; git commit -m "docker build" ; git push
+  330  vi Jenkinsfile 
+  331  ls -al
+  332  cat Jenkinsfile 
+  333  vi Jenkinsfile 
+  334  vi main.tf 
+  335  vi variables.tf 
+  336  vi Jenkinsfile 
+  337  ../fw.sh 
+  338  ls -al
+  339  ls helmchart/
+  340  cd ..
+  341  ls
+  342  cd tmp/
+  343  s
+  344  ls
+  345  cd ..
+  346  cd TerraformWithGCPExample/
+  347  vi tiller-sa.yaml
+  348  git add . ; git commit -m "docker build" ; git push
+  349  vi Jenkinsfile 
+  350  cat jen
+  351  cat Jenkinsfile 
+  352  vi Jenkinsfile 
+  353  git add . ; git commit -m "docker build" ; git push
+  354  vi variables.tf 
+  355  git add . ; git commit -m "docker build" ; git push
+  356  vi Jenkinsfile 
+  357  git add . ; git commit -m "docker build" ; git push
+  358  vi Jenkinsfile 
+  359  cat Jenkinsfile 
+  360  vi Jenkinsfile 
+  361  git add . ; git commit -m "docker build" ; git push
+  362  vi Jenkinsfile 
+  363  git add . ; git commit -m "docker build" ; git push
+  364  cd ..
+  365  cd tmp/
+  366  ls
+  367  cd ../TerraformWithGCPExample/
+  368  cd helmchart/
+  369  ls
+  370  cat ../Jenkinsfile 
+  371  cd ..
+  372  less helmchart/templates/thesimplegym.yaml 
+  373  !
+  374  vi Jenkinsfile 
+  375  git add . ; git commit -m "docker build" ; git push
+  376  mv helmchart thegym
+  377  vi thegym/templates/thesimplegym.yaml 
+  378  git add . ; git commit -m "docker build" ; git push
+  379  vi Jenkinsfile 
+  380  git add . ; git commit -m "docker build" ; git push
+  381  vi thegym/templates/thesimplegym.yaml 
+  382  git add . ; git commit -m "docker build" ; git push
+  383  ../fw.sh 
+  384  ls
+  385  less backend.tf 
+  386  ./fw
+  387  ./fw.sh 
+  388  cd TerraformWithGCPExample/
+  389  ls
+  390  git add . ; git commit -m "prod stages" ; git push
+  391  cd ../anthos/
+  392  vi env.sh 
+  393  ./install-anthos.sh 
+  394  cd ..
+  395  cd TerraformWithGCPExample/
+  396  vi Jenkinsfile 
+  397  git add . ; git commit -m "prod stages" ; git push
+  398  vi thegym/templates/thesimplegym.yaml 
+  399  git add . ; git commit -m "prod stages" ; git push
+  400  ../fw.sh 
+  401  vi thegym/templates/thesimplegym.yaml 
+  402  git add . ; git commit -m "prod stages" ; git push
+  403  less ../thesimplegym/thesimplegym.yaml 
+  404  less ../thesimplegym/gcp-install.sh 
+  405  less ../thesimplegym/istio-gateway-ui.yaml 
+  406  vi thegym/templates/thesimplegym.yaml 
+  407  git add . ; git commit -m "prod stages" ; git push
+  408  cd ..
+  409  cd thesimplegym/
+  410  ./gcp-install.sh 
+  411  kubectl -n thegym get pods
+  412  vi istio-gateway-ui.yaml 
+  413  curl -H Host: knative-thegym-ui.thegym.example.com http://34.72.107.180
+  414  curl -H "Host: knative-thegym-ui.thegym.example.com" http://34.72.107.180
+  415  kubectl -n gym describe deployment ui
+  416  kubectl -n thegym describe deployment ui
+  417  kubectl delete ns thegym
+  418  kubectl -n thegym get pods
+  419  ./gcp-install.sh 
+  420  kubectl delete -f istio-gateway-ui.yaml 
+  421  kubectl delete ns thegym
+  422  cat gcp-install.sh 
+  423  kubectl delete -f se.yaml 
+  424  kubectl -n theygm  delete -f se.yaml 
+  425  ./gcp-install.sh 
+  426  less ../anthos/prep_asm.sh 
+  427  cd ..
+  428  cd anthos/
+  429  grep kpt *
+  430  kpt
+  431  which kpt
+  432  ls
+  433  gcloud components install kpt
+  434  sudo apt-get install kpt
+  435  sudo apt-get install google-cloud-sdk-kpt
+  436  vi prep_asm.sh 
+  437  ./install-anthos.sh 
+  438  cat install-anthos.sh 
+  439  cd ..
+  440  cd thesimplegym/
+  441  ./gcp-install.sh 
+  442  cat ../anthos/config-connector.
+  443  cat ../anthos/config-connector.sh 
+  444  kubectl wait -n cnrm-system  --for=condition=Ready pod --all
+  445  ./gcp-install.sh 
+  446  cd ..
+  447  cd TerraformWithGCPExample/
+  448  cp ../thesimplegym/istio-gateway-ui.yaml .
+  449  less thesimplegym.yaml 
+  450  kubectl apply -f istio-gateway-ui.yaml 
+  451  kubectl -n thegym get pods
+  452  vi istio-gateway-ui.yaml 
+  453  kubectl get hpa
+  454  kubectl -n thegym  get hpa
+  455  vi istio-gateway-ui.yaml 
+  456  kubectl apply -f istio-gateway-ui.yaml 
+  457  cd ..
+  458  cd thesimplegym/
+  459  cat istio-gateway-ui.yaml 
+  460  kubectl apply -f istio-gateway-ui.yaml 
+  461  cp istio-gateway-ui.yaml ../TerraformWithGCPExample/.yaml
+  462  cd ../TerraformWithGCPExample/
+  463  mv .yaml i.yaml
+  464  vi i.yaml 
+  465  kubectl apply -f i.yaml 
+  466  vi i.yaml 
+  467  kubectl apply -f i.yaml 
+  468  vi istio-gateway-ui.yaml 
+  469  vi i.yaml 
+  470  kubectl apply -f i.yaml 
+  471  kubectl apply -f istio-gateway-ui.yaml 
+  472  cp istio-gateway-ui.yaml i.yaml 
+  473  vi i.yaml 
+  474  kubectl apply -f istio-gateway-ui.yaml 
+  475  vi i.yaml 
+  476  kubectl apply -f istio-gateway-ui.yaml 
+  477  kubectl apply -f i.yaml 
+  478  cat istio-gateway-ui.yaml 
+  479  vi i.yaml 
+  480  kubectl apply -f i.yaml 
+  481  vi i.yaml 
+  482  kubectl apply -f i.yaml 
+  483  vi i.yaml 
+  484  vi destinationrule.yaml
+  485  vi i.yaml 
+  486  kubectl apply -f i.yaml 
+  487  vi i.yaml 
+  488  kubectl apply -f i.yaml 
+  489  vi i.yaml 
+  490  kubectl apply -f i.yaml 
+  491  vi i.yaml 
+  492  kubectl apply -f i.yaml 
+  493  vi i.yaml 
+  494  kubectl apply -f i.yaml 
+  495  vi i.yaml 
+  496  kubectl apply -f i.yaml 
+  497  vi i.yaml 
+  498  kubectl apply -f i.yaml 
+  499  vi i.yaml 
+  500  kubectl apply -f i.yaml 
+  501  vi i.yaml 
+  502  kubectl apply -f i.yaml 
+  503  vi i.yaml 
+  504  vi destinationrule.yaml 
+  505  kubectl apply -f  destinationrule.yaml 
+  506  export KUBECONFIG=./config; ./helm install --dry-run --set build=${BUILD_NUMBER} ./thegym
+  507  export KUBECONFIG=./config; helm install --dry-run --set build=${BUILD_NUMBER} ./thegym
+  508  export BUILD_NUMBER=102
+  509  export KUBECONFIG=./config; helm install --dry-run --set build=${BUILD_NUMBER} ./thegym
+  510  which helm
+  511  cd ..
+  512  cat TerraformWithGCPExample/Jenkinsfile 
+  513  curl -o helm.tar https://storage.googleapis.com/esiemes-scripts/helm.tar
+  514  tar xvf helm.tar 
+  515  rm LICENSE README.md tiller 
+  516  cd TerraformWithGCPExample/
+  517  export KUBECONFIG=./config; ../helm install --dry-run --set build=${BUILD_NUMBER} ./thegym
+  518  ../helm init --wait --service-account=tiller; sleep 10
+  519  export KUBECONFIG=
+  520  ../helm init --wait --service-account=tiller; sleep 10
+  521  ../helm install --dry-run --set build=${BUILD_NUMBER} ./thegym
+  522  cat Jenkinsfile 
+  523  ls
+  524  kubectl --kubeconfig config apply -f tiller-sa.yaml
+  525  gcloud container clusters get-credentials prodcluster --zone us-central1-c --project esiemes-default
+  526  kubectl apply -f tiller-sa.yaml
+  527  ../helm init --wait --service-account=tiller; sleep 10
+  528  ../helm install --dry-run --set build=${BUILD_NUMBER} ./thegym
+  529  ../helm install --dry-run --debug --set build=${BUILD_NUMBER} ./thegym
+  530  ../helm install --dry-run --debug --set build=${BUILD_NUMBER} ./thegym --namespace thegym
+  531  ../helm install  --set build=${BUILD_NUMBER} ./thegym --namespace thegym
+  532  kubectl -n thegym get pods
+  533  vi destinationrule.yaml 
+  534  kubectl describe pod uiv102-6b577968db-b2b4k
+  535  kubectl -n thegym get pods
+  536  kubectl -n thegym describe pod uiv102-6b577968db-b2b4k
+  537  vi destinationrule.yaml 
+  538  kubectl apply -f destinationrule.yaml 
+  539  kubectl -n thegym apply -f destinationrule.yaml 
+  540  vi i.yaml 
+  541  vi destinationrule.yaml 
+  542  kubectl -n thegym apply -f destinationrule.yaml 
+  543  kubectl apply -f i.yaml 
+  544  kubectl -n thegym apply -f i.yaml 
+  545  vi i.yaml 
+  546  cp i.yaml i2.yaml
+  547  vi i2.yaml 
+  548  kubectl -n thegym apply -f i2.yaml 
+  549  kubectl -n thegym delete -f destinationrule.yaml 
+  550  kubectl -n thegym delete -f i.yaml 
+  551  kubectl -n thegym delete -f destinationrule.yaml 
+  552  kubectl delete -f i.yaml 
+  553  kubectl delete -f destinationrule.yaml 
+  554  vi i2.yaml 
+  555  kubectl -n thegym apply -f i2.yaml 
+  556  vi destinationrule.yaml 
+  557  kubectl -n thegym apply -f destinationrule.yaml 
+  558  cp i.yaml i3.yaml
+  559  vi i3.yaml 
+  560  kubectl -n thegym delete -f i2.yaml 
+  561  kubectl -n thegym apply -f i3.yaml 
+  562  vi i3.yaml 
+  563  kubectl -n thegym apply -f i3.yaml 
+  564  vi i3.yaml 
+  565  kubectl -n thegym apply -f i3.yaml 
+  566  vi destinationrule.yaml 
+  567  kubectl -n thegym describe destinationrule
+  568  vi destinationrule.yaml 
+  569  kubectl -n thegym apply -f destinationrule.yaml 
+  570  vi destinationrule.yaml vi i3.yaml 
+  571  vi i3.yaml 
+  572  kubectl -n thegym apply -f i3.yaml 
+  573  vi i3.yaml 
+  574  kubectl -n thegym apply -f i3.yaml 
+  575  vi i3.yaml 
+  576  kubectl -n thegym apply -f i3.yaml 
+  577  vi i3.yaml 
+  578  kubectl -n thegym apply -f i3.yaml 
+  579  kubectl -n thegym det pods
+  580  kubectl -n thegym get pods
+  581  kubectl -n thegym describe pod ui-6f58d8df6f-wzm8m
+  582  vi i3.yaml 
+  583  kubectl -n thegym apply -f i3.yaml 
+  584  vi i3.yaml 
+  585  kubectl -n thegym apply -f i3.yaml 
+  586  vi i3.yaml 
+  587  kubectl -n thegym apply -f i3.yaml 
+  588  vi i3.yaml 
+  589  kubectl -n thegym apply -f i3.yaml 
+  590  curl -H "Host: thegym.gcp" http://34.68.251.95/
+  591  curl -v -H "Host: thegym.gcp" http://34.68.251.95/
+  592  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  593  vi i3.yaml 
+  594  cat ../thesimplegym/gcp-install.sh 
+  595  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  596  vi i3.yaml 
+  597  kubectl -n thegym apply -f i3.yaml 
+  598  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  599  vi i3.yaml 
+  600  kubectl -n thegym apply -f i3.yaml 
+  601  vi i3.yaml 
+  602  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  603  vi i3.yaml 
+  604  kubectl -n thegym apply -f i3.yaml 
+  605  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  606  vi i.yaml 
+  607  vi i3.yaml 
+  608  kubectl -n thegym apply -f i3.yaml 
+  609  cat ../thesimplegym/istio-gateway-ui.yaml 
+  610  vi i3.yaml 
+  611  kubectl -n thegym apply -f i3.yaml 
+  612  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  613  vi i3.yaml 
+  614  kubectl -n thegym apply -f i3.yaml 
+  615  curl -v -H "Host: thegym.gcp" http://34.68.251.95
+  616  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  617  vi i3.yaml 
+  618  kubectl -n thegym apply -f i3.yaml 
+  619  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  620  vi i3.yaml 
+  621  kubectl -n thegym apply -f i3.yaml 
+  622  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  623  vi destinationrule.yaml 
+  624  vi i3.yaml 
+  625  kubectl -n thegym apply -f i3.yaml 
+  626  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  627  kubectl -n thegym apply -f destinationrule.yaml 
+  628  vi destinationrule.yaml 
+  629  vi i3.yaml 
+  630  kubectl -n thegym apply -f i3.yaml 
+  631  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  632  vi destinationrule.yaml 
+  633  kubectl -n thegym apply -f destinationrule.yaml 
+  634  vi i3.yaml 
+  635  kubectl -n thegym apply -f i3.yaml 
+  636  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  637  vi 
+  638  vi destinationrule.yaml 
+  639  vi i3.yaml 
+  640  vi destinationrule.yaml 
+  641  kubectl -n thegym apply -f destinationrule.yaml 
+  642  kubectl -n thegym apply -f i3.yaml 
+  643  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  644  kubectl -n thegym delete deployment ui
+  645  vi thesimplegym.yaml 
+  646  kubectl -n thegym apply -f thesimplegym.yaml 
+  647  vi destinationrule.yaml 
+  648  kubectl -n thegym get pods
+  649  vi destinationrule.yaml 
+  650  vi thesimplegym.yaml 
+  651  kubectl -n thegym get pods
+  652  vi thegym/templates/thesimplegym.yaml 
+  653  kubectl delete deployment uiv102
+  654  kubectl -n thegym delete deployments uiv102
+  655  vi thegym/templates/thesimplegym.yaml 
+  656  history | grep helm
+  657  ../helm install  --set build=${BUILD_NUMBER} ./thegym --namespace thegym
+  658  kubectl -n thegym get pods
+  659  vi thegym/templates/thesimplegym.yaml 
+  660  kubectl -n thegym delete deployments ui-0.0.v102
+  661  kubectl -n thegym get pods
+  662  ../helm install  --set build=${BUILD_NUMBER} ./thegym --namespace thegym
+  663  kubectl -n thegym get pods
+  664  vi i3.yaml 
+  665  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  666  vi i3.yaml 
+  667  kubectl -n thegym apply -f i3.yaml 
+  668  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  669  vi i3.yaml 
+  670  vi destinationrule.yaml 
+  671  kubectl -n thegym describe pod ui-v0.0.102
+  672  kubectl -n thegym describe pod ui-v0.0.102 | rep 102
+  673  kubectl -n thegym describe pod ui-v0.0.102 | grep 102
+  674  vi destinationrule.yaml 
+  675  vi i3.yaml 
+  676  vi destinationrule.yaml 
+  677  vi i3.yaml 
+  678  kubectl -n thegym apply -f i3.yaml 
+  679  vi destinationrule.yaml 
+  680  kubectl -n thegym apply -f destinationrule.yaml 
+  681  kubectl -n thegym apply -f i3.yaml 
+  682  vi i3.yaml 
+  683  kubectl -n thegym apply -f i3.yaml 
+  684  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  685  vi i3.yaml 
+  686  kubectl -n thegym apply -f i3.yaml 
+  687  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  688  kubectl -n thegym delete svc ui
+  689  vi i3.yaml 
+  690  kubectl -n thegym apply -f i3.yaml 
+  691  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  692  vi destinationrule.yaml 
+  693  vi i3.yaml 
+  694  vi thesimplegym.yaml 
+  695  cd ..
+  696  cd thesimplegym/
+  697  vi gcp-thesimplegym.yaml 
+  698  cat gcp-thesimplegym.yaml 
+  699  cd ..
+  700  cd TerraformWithGCPExample/
+  701  vi i4.yaml
+  702  kubectl -n thegym apply -f i4.yaml 
+  703  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  704  vi i3.yaml 
+  705  kubectl -n thegym apply -f i3.yaml 
+  706  curl -v -H "Host: thegym.gcp" http://34.68.251.95/version.html
+  707  vi i3.yaml 
+  708  kubectl -n thegym apply -f i3.yaml 
+  709  vi i3.yaml 
+  710  kubectl -n thegym apply -f i3.yaml 
+  711  ls
+  712  rm i.yaml 
+  713  rm i2.yaml 
+  714  rm i4.yaml 
+  715  ls
+  716  cat i3.yaml 
+  717  rm istio-gateway-ui.yaml 
+  718  mv i3.yaml istio-gateway-ui.yaml
+  719  ls
+  720  less destinationrule.yaml 
+  721  vi destinationrule.yaml 
+  722  vi istio-gateway-ui.yaml 
+  723  kubectl -n thegym apply -f destinationrule.yaml 
+  724  kubectl -n thegym apply -f istio-gateway-ui.yaml 
+  725  vi ../thesimplegym/gcp-install.sh 
+  726  ls
+  727  rm README.md 
+  728  mv istio-gateway-ui.yaml thegym/templates/
+  729  vi thegym/templates/thesimplegym.yaml 
+  730  cat thegym/templates/thesimplegym.yaml 
+  731  vi thegym/templates/istio-gateway-ui.yaml 
+  732  mv destinationrule.yaml thegym/templates/istio-gateway-ui.yaml 
+  733  vi thegym/templates/istio-gateway-ui.yaml 
+  734  kubectl -n thegym get destinationrule -o json
+  735  kubectl -n thegym get destinationrule -o yaml
+  736  vi thegym/templates/destinationrules.yaml
+  737  cat thegym/templates/istio-gateway-ui.yaml 
+  738  cat thegym/templates/thesimplegym.yaml 
+  739  vi thegym/templates/destinationrules.yaml
+  740  ls
+  741  cat simple * 
+  742  grep simple *
+  743  rm thesimplegym.yaml 
+  744  ls
+  745  git add . ; git commit -m "istio canary"; git push
+  746  ls
+  747  vi thegym/templates/thesimplegym.yaml 
+  748  kubectl -n thegym get pods
+  749  kubectl -n thegym logs ui-v0.0.1-ccb9d65dd-pqznt 
+  750  kubectl -n thegym logs ui-v0.0.1-ccb9d65dd-pqznt ui
+  751  vi Jenkinsfile 
+  752  cd
+  753  cd .ku
+  754  cd .kube/
+  755  less config 
+  756  cp config c2
+  757  vi c2 
+  758  rm c2
+  759  cd 
+  760  cd TerraformWithGCPExample/
+  761  ls
+  762  cd
+  763  rm -fr .kube/
+  764  gcloud container clusters get-credentials prodcluster --zone us-central1-c --project esiemes-default
+  765  ls -al .ku
+  766  ls -al .kube
+  767  cat .kube/config
+  768  ./fw.sh 
+  769  cd TerraformWithGCPExample/
+  770  vi Jenkinsfile 
+  771  cat Jenkinsfile 
+  772  vi Jenkinsfile 
+  773  history | hrep git
+  774  history | grep git
+  775  git add . ; git commit -m "istio canary"; git push
+  776  vi Jenkinsfile 
+  777  git add . ; git commit -m "istio canary"; git push
+  778  vi Jenkinsfile 
+  779  mv thegym/templates/destinationrules.yaml .
+  780  mv thegym/templates/istio-gateway-ui.yaml .
+  781  vi Jenkinsfile 
+  782  cat Jenkinsfile 
+  783  ls destinationrules.yaml
+  784  ls thegym/templates
+  785  git add . ; git commit -m "istio canary"; git push
+  786  vi Jenkinsfile 
+  787  cat config
+  788  ls
+  789  less config.template 
+  790  less Jenkinsfile 
+  791  cat Jenkinsfile 
+  792  vi Jenkinsfile 
+  793  git add . ; git commit -m "istio canary"; git push
+  794  vi Jenkinsfile 
+  795  cat Jenkinsfile 
+  796  vi Jenkinsfile 
+  797  git add . ; git commit -m "istio canary"; git push
+  798  vi Jenkinsfile 
+  799  git add . ; git commit -m "istio canary"; git push
+  800  vi Jenkinsfile 
+  801  git add . ; git commit -m "istio canary"; git push
+  802  less Jenkinsfile 
+  803  vi Jenkinsfile 
+  804  git add . ; git commit -m "istio canary"; git push
+  805  vi Jenkinsfile 
+  806  git add . ; git commit -m "istio canary"; git push
+  807  cat Jenkinsfile 
+  808  vi destinationrules.yaml 
+  809  vi istio-gateway-ui.yaml 
+  810  vi Jenkinsfile 
+  811  git add . ; git commit -m "istio canary"; git push
+  812  vi Jenkinsfile 
+  813  git add . ; git commit -m "istio canary"; git push
+  814  cp -r thegym thegym-prod
+  815  mv istio-gateway-ui.yaml thegym-prod/
+  816  mv destinationrules.yaml thegym-prod/templates/m
+  817  cd thegym-rp
+  818  cd thegym-prod/
+  819  mv istio-gateway-ui.yaml templates/
+  820  vi templates/thesimplegym.yaml 
+  821  cd ..
+  822  ls
+  823  vi Jenkinsfile 
+  824  git add . ; git commit -m "istio canary"; git push
+  825  ../fw.sh 
+  826  vi thegym-prod/templates/istio-gateway-ui.yaml 
+  827  mv thegym-prod/templates/istio-gateway-ui.yaml ../thesimplegym/istio-gateway-ui2.yaml 
+  828  find . -name "dest*"
+  829  less thegym-prod/templates/m 
+  830  cd thegym-prod/templates/
+  831  mv m destinationrules.yaml
+  832  vi destinationrules.yaml 
+  833  kubectl -n thegym get Destinationrules
+  834  vi destinationrules.yaml 
+  835  cd ..
+  836  vi Jenkinsfile 
+  837  cp thegym-prod/templates/destinationrules.yaml .
+  838  vi destinationrules.yaml 
+  839  vi Jenkinsfile 
+  840  cat create-config.sh 
+  841  mv thegym-prod/templates/destinationrules.yaml .
+  842  vi destinationrules.yaml 
+  843  vi Jenkinsfile 
+  844  cat Jenkinsfile 
+  845  vi create-config.sh 
+  846  cat create-config.sh 
+  847  ls destinationrules.yaml
+  848  vi create-config.sh 
+  849  vi Jenkinsfile 
+  850  git add . ; git commit -m "istio canary"; git push
+  851  ls -al thegym/templates/
+  852  less Jenkinsfile 
+  853  git add . ; git commit -m "istio canary"; git push
+  854  ls destinationrules.yaml 
+  855  vi Jenkinsfile 
+  856  git add . ; git commit -m "istio canary"; git push
+  857  cd TerraformWithGCPExample/
+  858  less main.tf 
+  859  ls
+  860  less Jenkinsfile 
+  861  ../fw.sh 
+  862  kubectl -n thegym get pods
+  863  kubectl -n thegym delete deployment ui-v0.0.102
+  864  kubectl -n thegym delete deployment ui-v0.0.114
+  865  kubectl -n thegym delete deployment ui-v0.0.115
+  866  kubectl -n thegym delete deployment ui-v0.0.117
+  867  kubectl -n thegym get pods
+  868  kubectl -n thegym logs ui-v0.0.1-ccb9d65dd-pqznt  ui
+  869  kubectl -n thegym logs messagelistener-0 
+  870  kubectl -n thegym logs messagelistener-0 messagelistener
+  871  less ../thesimplegym/thesimplegym.yaml 
+  872  vi thegym/templates/thesimplegym.yaml 
+  873  cd ..
+  874  less thesimplegym/se.yaml 
+  875  cat thesimplegym/gcp-install.sh 
+  876  ./fw.sh 
+  877  cd TerraformWithGCPExample/
+  878  less Jenkinsfile 
+  879  less main.tf 
+  880  cd TerraformWithGCPExample/
+  881  ../fw.sh 
+  882  kubectl -n thegym get pods
+  883  kubectl -n thegym logs gaeimporter-75b499bc56-rdfq9
+  884  kubectl -n thegym logs gaeimporter-75b499bc56-rdfq9 gaeimporter
+  885  kubectl -n thegym delete pod gaeimporter-75b499bc56-rdfq9
+  886  kubectl -n thegym get pods
+  887  kubectl -n thegym logs gaeimporter-75b499bc56-x28hj gaeimporter
+  888  kubectl -n thegym get pods
+  889  kubectl -n thegym logs gaeimporter-75b499bc56-x28hj gaeimporter
+  890  kubectl -n thegym logs messagetransformer-56ffd88f86-rcsbh  messagetransformer
+  891  kubectl -n thegym get pods
+  892  kubectl -n delete deployment ui-v0.0.118
+  893  kubectl -n thegym delete deployment ui-v0.0.118
+  894  kubectl -n thegym delete deployment ui-v0.0.119
+  895  kubectl -n thegym logs ui-v0.0.1-ccb9d65dd-pqznt ui
+  896  kubectl -n thegym get pods
+  897  kubectl -n thegym logs messagelistener-0 messagelistener
+  898  cd ..
+  899  cd thesimplegym/
+  900  kubectl -n thegym apply -f se.yaml 
+  901  kubectl delete ns thegym
+  902  ./gcp-install.sh 
+  903  cd ..
+  904  cd TerraformWithGCPExample/
+  905  less Jenkinsfile 
+  906  less ../thesimplegym/gcp-thesimplegym.yaml 
+  907  vi ../thesimplegym/gcp-thesimplegym.yaml 
+  908  cd ../thesimplegym/
+  909  kubectl delete ns thegym
+  910  ./gcp-install.sh 
+  911  kubectl -n thegym delete deployment  ui-v121
+  912  kubectl -n thegym get pods
+  913  kubectl -n thegym delete deployment  ui-v0.0.121
+  914  cd ..
+  915  cd TerraformWithGCPExample/
+  916  ls
+  917  vi destinationrules.yaml 
+  918  kubectl -n thegym apply -f destinationrules.yaml 
+  919  vi destinationrules.yaml 
+  920  kubectl -n thegym apply -f destinationrules.yaml 
+  921  vi destinationrules.yaml 
+  922  cp destinationrules.yaml d.yaml
+  923  vi d.yaml 
+  924  kubectl -n thegym apply -f d.yaml 
+  925  vi Jenkinsfile 
+  926  vi d.yaml 
+  927  kubectl -n thegym apply -f d.yaml 
+  928  vi d.yaml 
+  929  kubectl -n thegym apply -f d.yaml 
+  930  cat d.yaml 
+  931  cat destinationrules.yaml 
+  932  vi d.yaml 
+  933  mv d.yaml destinationrules.yaml 
+  934  git add .; git commit -m "destination rule mit sticky cookie"
+  935  git push
+  936  clear
+  937  ./fw.sh 
+  938  clear
+  939  cd TerraformWithGCPExample/
+  940  less Jenkinsfile 
+  941  less main.tf 
+  942  less variables.tf 
+  943  less outputs.tf 
+  944  less backend.tf 
+  945  cd anthos/
+  946  ls
+  947  vi prep_asm.sh 
+  948  vi env.sh 
+  949  ./install-anthos.sh 
+  950  vi
+  951  vi env.sh 
+  952  ./install-anthos.sh 
+  953  cd ..
+  954  cd thesimplegym/
+  955  ./gcp-install.sh 
+  956  ls
+  957  cd ..
+  958  cd anthos/
+  959  ls
+  960  vi prep_asm.sh 
+  961  ./install-anthos.sh 
+  962  cd ..
+  963  cd  gcp
+  964  cd thesimplegym/
+  965  ./gcp-install.sh 
+  966  less microservice-ui/routes/index.js 
+  967  vi microservice-ui/routes/index.js 
+  968  vi gcp-thesimplegym.yaml 
+  969  ./make.sh 
+  970  cd ..
+  971  cd anthos/
+  972  ls
+  973  vi prep_asm.sh 
+  974  cat prep_asm.sh 
+  975  curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.6.4-asm.9-linux.tar.gz
+  976  ls -al
+  977  rm -fr istio-1.*
+  978  vi prep_asm.sh 
+  979  ./install-anthos.sh 
+  980  vi prep_asm.sh 
+  981  ./install-anthos.sh 
+  982  cd ../thesimplegym/
+  983  ./gcp-install.sh 
+  984  cd ..
+  985  cd anthos/
+  986  vi env.sh 
+  987  ./install-anthos.sh 
+  988  vi env.sh 
+  989  ./install-anthos.sh 
+  990  cd ..
+  991  cd thesimplegym/
+  992  vi gcp-thesimplegym.yaml 
+  993  ./gcp-install.sh 
+  994  cd ..
+  995  cd anthos/
+  996  cd istio-1.6.4-asm.9/
+  997  ls
+  998  cd ..
+  999  vi prep_asm.sh 
+ 1000  ./install-anthos.sh 
+ 1001  cd thesimplegym/
+ 1002  ./gcp-install.sh 
+ 1003  gcloud container clusters get-credentials cluster-two --zone europe-west3-b --project esiemes-default
+ 1004  ./gcp-install.sh 
+ 1005  export CLUSTER1=YOUR_FIRST_CLUSTER_NAME
+ 1006  export CLUSTER2=cluster-two
+ 1007  export CLUSTER1=cluster-one
+ 1008  export LOCATION1=us-central1-c
+ 1009  export LOCATION2=europe-west3-b
+ 1010  export CTX1=gke_${PROJECT_ID}_${LOCATION1}_${CLUSTER1}
+ 1011  export CTX2=gke_${PROJECT_ID}_${LOCATION2}_${CLUSTER2}
+ 1012  echo CTX1
+ 1013  echo CTX2
+ 1014  istioctl x create-remote-secret --context=${CTX1} --name=${CLUSTER1} |   kubectl apply -f - --context=${CTX2}
+ 1015  cdc ..
+ 1016  cd ..
+ 1017  cd anthos/istio-1.6.4-asm.9/asm/
+ 1018  ls
+ 1019  cd ..
+ 1020  ls
+ 1021  istioctl x create-remote-secret --context=${CTX1} --name=${CLUSTER1} | \
+ 1022  export PATH=./bin:$PATH
+ 1023  istioctl x create-remote-secret --context=${CTX1} --name=${CLUSTER1} |   kubectl apply -f - --context=${CTX2}
+ 1024  less  ~/.kube/config 
+ 1025  echo CTX1
+ 1026  echo $CTX1
+ 1027  echo $CTX2
+ 1028  export CTX2=gke_${PROJECT_ID}_${LOCATION2}_${CLUSTER2}
+ 1029  echo $CTX2
+ 1030  echo $PROJECT_ID
+ 1031  source ../env.sh 
+ 1032  echo $PROJECT_ID
+ 1033  export CTX2=gke_${PROJECT_ID}_${LOCATION2}_${CLUSTER2}
+ 1034  export CTX1=gke_${PROJECT_ID}_${LOCATION1}_${CLUSTER1}
+ 1035  istioctl x create-remote-secret --context=${CTX1} --name=${CLUSTER1} |   kubectl apply -f - --context=${CTX2}
+ 1036  istioctl x create-remote-secret --context=${CTX2} --name=${CLUSTER2} |   kubectl apply -f - --context=${CTX1}
+ 1037  cd ..
+ 1038  history >his.txt

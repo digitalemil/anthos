@@ -58,19 +58,21 @@ gcloud container clusters get-credentials ${CLUSTER_NAME}
 kubectl create clusterrolebinding cluster-admin-binding \
   --clusterrole=cluster-admin \
   --user="$(gcloud config get-value core/account)"
-
-
-curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.5.5-asm.2-linux.tar.gz
-tar xzf istio-1.5.5-asm.2-linux.tar.gz
-cd istio-1.5.5-asm.2
-
+curl -LO https://storage.googleapis.com/gke-release/asm/istio-1.6.5-asm.1-linux-amd64.tar.gz
+tar xzf istio-1.6.5-asm.1-linux-amd64.tar.gz
+cd istio-1.6.5-asm.1
+rm -fr asm
 export PATH=$PWD/bin:$PATH
-gcloud components install kpt
-kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/asm@release-1.5-asm .
+#gcloud components install kpt
+sudo apt-get install google-cloud-sdk-kpt -y
+kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/asm@release-1.6-asm .
+#kpt pkg get https://github.com/GoogleCloudPlatform/anthos-service-mesh-packages.git/asm@release-1.5-asm .
 kpt cfg set asm gcloud.container.cluster ${CLUSTER_NAME}
+kpt cfg set asm gcloud.compute.location ${CLUSTER_ZONE}
+kubectl create namespace istio-system
 
-istioctl manifest apply --set profile=asm \
-	  -f asm/cluster/istio-operator.yaml
+#istioctl install --set profile=asm-multicloud
+istioctl install -f asm/cluster/istio-operator.yaml
 
 kubectl wait --for=condition=available --timeout=600s deployment --all -n istio-system
 

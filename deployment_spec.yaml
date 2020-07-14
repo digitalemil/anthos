@@ -74,7 +74,7 @@ metadata:
     kubernetes.io/createdby: gce-pd-dynamic-provisioner
     pv.kubernetes.io/bound-by-controller: "yes"
     pv.kubernetes.io/provisioned-by: kubernetes.io/gce-pd
-  creationTimestamp: "2020-05-25T14:19:01Z"
+  creationTimestamp: "2020-06-22T13:20:46Z"
   finalizers:
   - kubernetes.io/pv-protection
   labels:
@@ -82,8 +82,8 @@ metadata:
     failure-domain.beta.kubernetes.io/zone: us-central1-c
     migration: pmml-migration
     migration-namespace: default
-    migration-uid: ac4ec1af-9e92-11ea-b0e6-42010a80009a
-  name: pvc-acab8e79-9e92-11ea-b0e6-42010a80009a
+    migration-uid: 2ccdd76c-b48b-11ea-8934-42010a800fcc
+  name: pvc-2d1e69d1-b48b-11ea-8934-42010a800fcc
 spec:
   accessModes:
   - ReadWriteOnce
@@ -91,19 +91,19 @@ spec:
     storage: 10Gi
   gcePersistentDisk:
     fsType: ext4
-    pdName: gke-migration-processi-pvc-acab8e79-9e92-11ea-b0e6-42010a80009a
+    pdName: gke-migration-processi-pvc-2d1e69d1-b48b-11ea-8934-42010a800fcc
   nodeAffinity:
     required:
       nodeSelectorTerms:
       - matchExpressions:
-        - key: failure-domain.beta.kubernetes.io/zone
-          operator: In
-          values:
-          - us-central1-c
         - key: failure-domain.beta.kubernetes.io/region
           operator: In
           values:
           - us-central1
+        - key: failure-domain.beta.kubernetes.io/zone
+          operator: In
+          values:
+          - us-central1-c
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
 status: {}
@@ -118,13 +118,13 @@ metadata:
     pv.kubernetes.io/bind-completed: "yes"
     pv.kubernetes.io/bound-by-controller: "yes"
     volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/gce-pd
-  creationTimestamp: "2020-05-25T14:18:58Z"
+  creationTimestamp: "2020-06-22T13:20:43Z"
   finalizers:
   - kubernetes.io/pvc-protection
   labels:
     migration: pmml-migration
     migration-namespace: default
-    migration-uid: ac4ec1af-9e92-11ea-b0e6-42010a80009a
+    migration-uid: 2ccdd76c-b48b-11ea-8934-42010a800fcc
   name: pvc-pmml-vm
 spec:
   accessModes:
@@ -134,7 +134,7 @@ spec:
       storage: 10G
   storageClassName: ""
   volumeMode: Filesystem
-  volumeName: pvc-acab8e79-9e92-11ea-b0e6-42010a80009a
+  volumeName: pvc-2d1e69d1-b48b-11ea-8934-42010a800fcc
 status: {}
 
 ---

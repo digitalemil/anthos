@@ -102,6 +102,16 @@ spec:
                   format: int64
                   type: integer
               type: object
+            hierarchyController:
+              description: Hierarchy Controller enables HierarchyController components
+                as recognized by the "hierarchycontroller.configmanagement.gke.io"
+                label set to "true".
+              properties:
+                enabled:
+                  description: 'Enable or disable the Hierarchy Controller.  Default:
+                    false.'
+                  type: boolean
+              type: object
             policyController:
               description: Policy Controller enables PolicyController components as
                 recognized by the "gatekeeper.sh/manifest" label set to "true".
@@ -173,6 +183,23 @@ status:
   storedVersions: []
 
 ---
+# ----- addons_role_rbac.yaml -----
+# The Nomos system creates RBAC rules, so it requires
+# full cluster-admin access. Thus, the operator needs
+# to be able to grant tha permission to the installed
+# Nomos components.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    k8s-app: config-management-operator
+  name: config-management-operator
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+
+---
 # ----- addons_rolebinding_rbac.yaml -----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -189,23 +216,6 @@ subjects:
 - kind: ServiceAccount
   name: config-management-operator
   namespace: kube-system
-
----
-# ----- addons_role_rbac.yaml -----
-# The Nomos system creates RBAC rules, so it requires
-# full cluster-admin access. Thus, the operator needs
-# to be able to grant tha permission to the installed
-# Nomos components.
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  labels:
-    k8s-app: config-management-operator
-  name: config-management-operator
-rules:
-  - apiGroups: ["*"]
-    resources: ["*"]
-    verbs: ["*"]
 
 ---
 # ----- manager.yaml -----
@@ -245,7 +255,7 @@ spec:
         - /manager
         - --private-registry=
         name: manager
-        image: gcr.io/config-management-release/config-management-operator:20200508002505-op
+        image: gcr.io/config-management-release/config-management-operator:20200603183601-op
         resources:
           requests:
             cpu: 100m
